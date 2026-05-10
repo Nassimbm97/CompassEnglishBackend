@@ -21,10 +21,10 @@ public interface WordRepository extends JpaRepository<Word, Integer> {
 
     // Palabras de un tema concreto con nivel
     @Query("SELECT DISTINCT w FROM Word w JOIN w.themes t WHERE t.name = :theme AND w.level = :level")
-    List<Word> findByThemeAndLevel(@Param("theme") String theme, @Param("level") Level level);
+    List<Word> findByThemeAndLevel(@Param("theme") org.example.compassenglish.model.enums.ThemeName theme, @Param("level") Level level);
 
     @Query("SELECT DISTINCT w FROM Word w JOIN w.themes t WHERE t.name = :theme")
-    List<Word> findByThemeName(@Param("theme") String theme);
+    List<Word> findByThemeName(@Param("theme") org.example.compassenglish.model.enums.ThemeName theme);
 
     // Falsos amigos
     List<Word> findByIsFalseFriendTrue();

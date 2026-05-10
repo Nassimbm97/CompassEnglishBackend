@@ -209,14 +209,23 @@ public class ExerciseController {
         Level lvl = (!allLevels && level != null) ? Level.valueOf(level)
                 : (user.getLevelEstimated() != null ? user.getLevelEstimated() : Level.BEGINNER);
 
+        org.example.compassenglish.model.enums.ThemeName themeName = null;
+        if (theme != null && !theme.isBlank()) {
+            try {
+                themeName = org.example.compassenglish.model.enums.ThemeName.valueOf(theme);
+            } catch (IllegalArgumentException ignored) {
+                // tema desconocido -> se ignora el filtro de tema
+            }
+        }
+
         List<Word> words;
         if (allLevels) {
-            words = theme != null && !theme.isBlank()
-                    ? wordRepository.findByThemeName(theme)
+            words = themeName != null
+                    ? wordRepository.findByThemeName(themeName)
                     : new ArrayList<>(wordRepository.findAll());
-        } else if (theme != null && !theme.isBlank()) {
-            try { words = wordRepository.findByThemeAndLevel(theme, lvl); }
-            catch (Exception e) { words = wordRepository.findByLevel(lvl); }
+        } else if (themeName != null) {
+            words = wordRepository.findByThemeAndLevel(themeName, lvl);
+            if (words.isEmpty()) words = wordRepository.findByThemeName(themeName);
         } else {
             words = wordRepository.findByLevel(lvl);
         }
