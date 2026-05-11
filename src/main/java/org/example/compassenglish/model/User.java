@@ -8,7 +8,7 @@ import org.example.compassenglish.model.enums.Role;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "user")
+@Table(name = "User")
 public class User {
 
     @Id

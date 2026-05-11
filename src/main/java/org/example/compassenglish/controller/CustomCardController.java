@@ -146,7 +146,7 @@ public class CustomCardController {
      * Se llama al crear una tarjeta, no en cada ejercicio.
      *
      * @param wordSpa palabra en español
-     * @return lista de sugerencias y flag hasData
+     * @return lista de sugerencias y flagea hasData
      */
     @GetMapping("/suggestions/{wordSpa}")
     public ResponseEntity<?> getSuggestions(@PathVariable String wordSpa) {

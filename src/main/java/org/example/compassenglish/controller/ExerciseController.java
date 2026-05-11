@@ -214,7 +214,7 @@ public class ExerciseController {
             try {
                 themeName = org.example.compassenglish.model.enums.ThemeName.valueOf(theme);
             } catch (IllegalArgumentException ignored) {
-                // tema desconocido -> se ignora el filtro de tema
+                // tema desconocido así q se ignora el filtro de tema?
             }
         }
 

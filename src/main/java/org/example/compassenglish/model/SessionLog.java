@@ -40,7 +40,7 @@ public class SessionLog {
     @Column(name = "Correct", nullable = false)
     private boolean correct;
 
-    // Tiempo de respuesta en ms — fluencia real (Accuracy vs Fluency)
+    // Tiempo de respuesta en ms fluencia real
     @Column(name = "ResponseMs")
     private Integer responseMs;
 

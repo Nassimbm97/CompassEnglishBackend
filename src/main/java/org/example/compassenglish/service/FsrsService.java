@@ -249,10 +249,10 @@ public class FsrsService {
 
     private ExerciseType resolveType(CardState state) {
         return switch (state) {
-            case NEW        -> ExerciseType.MULTIPLE_CHOICE;
-            case LEARNING   -> ExerciseType.TRANSLATE;
-            case REVIEW     -> ExerciseType.FILL_GAP;
-            case RELEARNING -> ExerciseType.MULTIPLE_CHOICE;
+            case NEW        -> ExerciseType.MULTIPLE_CHOICE; // reconocimiento pasivo
+            case LEARNING   -> ExerciseType.TRANSLATE;       // producción activa sin contexto
+            case REVIEW     -> ExerciseType.FILL_GAP;        // producción en contexto
+            case RELEARNING -> ExerciseType.MULTIPLE_CHOICE; // vuelta al reconocimiento
         };
     }
 }

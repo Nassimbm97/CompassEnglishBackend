@@ -22,7 +22,7 @@ public class CustomCard {
     @Column(name = "WordEng", nullable = false)
     private String wordEng;
 
-    // Apuntes del usuario — campo nuevo
+    // Apuntes del usuario
     @Column(name = "Notes", length = 500)
     private String notes;
 

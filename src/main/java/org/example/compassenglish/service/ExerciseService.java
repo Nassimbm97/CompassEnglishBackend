@@ -143,7 +143,6 @@ public class ExerciseService {
 
     /**
      * Valida la respuesta del alumno para una palabra dada.
-     * Aplica FSRS (delegado a FsrsService) y genera feedback con noticing (Schmidt, 1990).
      *
      * @param user       usuario que responde
      * @param word       palabra evaluada
@@ -195,10 +194,6 @@ public class ExerciseService {
 
         return new CheckResult(correct, generateFeedback(word, answer, correct), notice);
     }
-
-    // ----------------------------------------------------------------
-    // RESULTADO DE COMPROBACIÓN
-    // ----------------------------------------------------------------
 
     /**
      * Resultado de la validación de una respuesta.
